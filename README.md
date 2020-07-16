@@ -1,5 +1,25 @@
 # vanilla-framework-svelte
 
+A quick test to see if the Vanilla CSS framework will play nicely with Svelte in a modular way.
+
+## Size
+
+The table below shows the (minified and gzipped) size of a completely empty app, versus an app which
+only contains the contextual menu from the example. Realistically, the JS would be a similar size if
+you were to write the component yourself in Svelte. The main difference is the additional CSS. The
+first component added includes the base styles of vanilla-framework, including normalize,
+typography, buttons etc. Adding additional components will not duplicate this, so the CSS size
+should not grow too quickly.
+
+|                            | **JS**       | **CSS**      |
+|----------------------------|-------------:|-------------:|
+| **App w/ no content**      |  1,135 bytes |     70 bytes |
+| **App w/ contextual menu** |  3,204 bytes |  7,793 bytes |
+|                            |              |              |
+| **Change**                 | +2,069 bytes | +7,723 bytes |
+
+Note: This will also include the Ubuntu font - hopefully this can be remove with SASS/CSS variables.
+
 ## Viewing the example
 
 See [./example/README.md](./example/README.md).
@@ -51,7 +71,7 @@ npm install --save-dev node-sass rollup-plugin-postcss
 
 ### Use component
 
-```js
+```html
 <script>
   import {
     ContextualMenu,
